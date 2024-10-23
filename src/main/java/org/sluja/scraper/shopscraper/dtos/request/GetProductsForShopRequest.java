@@ -8,5 +8,6 @@ import java.util.List;
 public record GetProductsForShopRequest(String shopName,
                                         List<String> categories,
                                         List<ShopScrapingAttributes> scrapingAttributes,
-                                        String context) implements Serializable {
+                                        String context,
+                                        boolean dynamicWebsite) implements Serializable {
 }
