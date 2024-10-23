@@ -1,1 +1,1 @@
-# SPWS
+# SPWS - Shop Products Web Scraper
