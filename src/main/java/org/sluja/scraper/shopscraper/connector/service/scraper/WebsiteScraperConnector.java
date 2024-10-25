@@ -19,7 +19,7 @@ public class WebsiteScraperConnector implements IWebsiteConnector<Document> {
         this.scraperConnector = new ScraperConnector();
     }
     @Override
-    public Document connectToWebpage(final String url) {
+    public Document getWebpage(final String url) {
         try {
             final ConnectRequest request = new ConnectRequest(url);
             return scraperConnector.connect(request);
