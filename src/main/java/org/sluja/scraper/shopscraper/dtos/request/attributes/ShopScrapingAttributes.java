@@ -1,5 +1,7 @@
 package org.sluja.scraper.shopscraper.dtos.request.attributes;
 
+import java.util.List;
+
 public record ShopScrapingAttributes(String productPrice,
                                      String productDiscountPrice,
                                      String homePageUrl,
@@ -12,7 +14,7 @@ public record ShopScrapingAttributes(String productPrice,
                                      String productDetailsAttribute,
                                      String productInstanceContainer,
                                      String categoryPagePagination,
-                                     String allCategoriesUrl,
+                                     List<String> allCategoriesUrls,
                                      String allCategoriesAttribute,
                                      String categoryUrlAttribute) {
 }
