@@ -24,7 +24,17 @@ public class AllCategoriesPageScraper extends AbstractBaseScraper implements ICa
     @Override
     public List<String> getPages(final AllCategoriesPageRequest request) throws ExceptionWithErrorAndMessageCode{
         final Document document = websiteScraperConnector.getWebpage(request.mainPageUrl());
-        final List<String> allCategoriesPageUrls = request.allCategoriesPageAttribute()
+        final List<String> allCategoriesPageUrls = extractPages(document, request);
+        if(CollectionUtils.isEmpty(allCategoriesPageUrls)) {
+            //TODO log
+            throw new EmptyCategoryPageElementsListException();
+        }
+        return allCategoriesPageUrls;
+    }
+
+    @Override
+    public List<String> extractPages(final Document document, final AllCategoriesPageRequest request) throws ExceptionWithErrorAndMessageCode {
+        return request.allCategoriesPageAttribute()
                 .stream()
                 .map(property -> {
                     try {
@@ -40,10 +50,5 @@ public class AllCategoriesPageScraper extends AbstractBaseScraper implements ICa
                 .distinct()
                 .filter(StringUtils::isNotEmpty)
                 .toList();
-        if(CollectionUtils.isEmpty(allCategoriesPageUrls)) {
-            //TODO log
-            throw new EmptyCategoryPageElementsListException();
-        }
-        return allCategoriesPageUrls;
     }
 }

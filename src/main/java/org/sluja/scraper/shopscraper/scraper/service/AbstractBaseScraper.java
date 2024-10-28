@@ -15,4 +15,5 @@ public abstract class AbstractBaseScraper implements IBaseScraper<Elements, Docu
         }
         return elements;
     }
+
 }
