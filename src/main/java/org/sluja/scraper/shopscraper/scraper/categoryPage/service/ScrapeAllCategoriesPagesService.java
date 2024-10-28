@@ -8,6 +8,7 @@ import org.sluja.scraper.shopscraper.scraper.categoryPage.interfaces.ICategoryPa
 import org.sluja.scraper.shopscraper.scraper.categoryPage.mappers.GetProductsForShopRequestToAllCategoriesPageRequestMapper;
 import org.sluja.scraper.shopscraper.scraper.service.IGetScrapedData;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -22,6 +23,7 @@ public class ScrapeAllCategoriesPagesService implements IGetScrapedData<List<Str
     @Autowired
     private GetProductsForShopRequestToAllCategoriesPageRequestMapper mapper;
     @Override
+    @Cacheable(value = "categoryPagesForShop", keyGenerator = "categoryPagesForShopKeyGenerator", unless = "#result.isEmpty()")
     public List<String> getScrapedData(final GetProductsForShopRequest request) throws ExceptionWithErrorAndMessageCode {
         try {
             return allCategoriesPageScraper.getPages(mapper.map(request));
