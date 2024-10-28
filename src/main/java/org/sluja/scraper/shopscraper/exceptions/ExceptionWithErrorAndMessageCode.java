@@ -1,5 +1,8 @@
 package org.sluja.scraper.shopscraper.exceptions;
 
+import lombok.Getter;
+
+@Getter
 public class ExceptionWithErrorAndMessageCode extends Exception {
 
     private final Long errorCode;
