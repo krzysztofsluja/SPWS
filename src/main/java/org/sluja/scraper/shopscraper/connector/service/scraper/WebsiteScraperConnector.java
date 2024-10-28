@@ -5,11 +5,14 @@ import org.jsoup.nodes.Document;
 import org.sluja.scraper.shopscraper.connector.dtos.request.ConnectRequest;
 import org.sluja.scraper.shopscraper.connector.exceptions.connection.WebsiteConnectionTimeoutException;
 import org.sluja.scraper.shopscraper.connector.exceptions.request.IncorrectConnectionRequestStructureException;
+import org.sluja.scraper.shopscraper.connector.exceptions.response.EmptyScrapedDocumentException;
 import org.sluja.scraper.shopscraper.connector.interfaces.IConnector;
 import org.sluja.scraper.shopscraper.connector.interfaces.IWebsiteConnector;
+import org.sluja.scraper.shopscraper.exceptions.ExceptionWithErrorAndMessageCode;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.util.Objects;
 
 @Component
 public class WebsiteScraperConnector implements IWebsiteConnector<Document> {
@@ -19,7 +22,7 @@ public class WebsiteScraperConnector implements IWebsiteConnector<Document> {
         this.scraperConnector = new ScraperConnector();
     }
     @Override
-    public Document getWebpage(final String url) {
+    public Document getWebpage(final String url) throws ExceptionWithErrorAndMessageCode {
         try {
             final ConnectRequest request = new ConnectRequest(url);
             return scraperConnector.connect(request);
@@ -27,10 +30,10 @@ public class WebsiteScraperConnector implements IWebsiteConnector<Document> {
             //TODO log
             //TODO throw ex
             return null;
-        } catch (WebsiteConnectionTimeoutException e) {
+        } catch (final WebsiteConnectionTimeoutException e) {
             //TODO log
             //TODO throw ex
-            return null;
+            throw e;
         }
     }
 
