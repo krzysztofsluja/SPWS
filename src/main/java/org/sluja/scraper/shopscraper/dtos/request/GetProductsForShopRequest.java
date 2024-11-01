@@ -36,9 +36,7 @@ public record GetProductsForShopRequest(ShopCategoriesRequest shopWithCategories
     }
 
     private void addCategoryNameToProperties() {
-        shopWithCategories.categories().forEach(category -> {
-            categoriesProperties.computeIfAbsent(category, _ -> new ArrayList<>())
-                                .add(category);
-        });
+        shopWithCategories.categories().forEach(category -> categoriesProperties.computeIfAbsent(category, _ -> new ArrayList<>())
+                            .add(category));
     }
 }

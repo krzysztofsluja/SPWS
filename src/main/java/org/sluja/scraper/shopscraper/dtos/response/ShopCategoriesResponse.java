@@ -1,5 +1,6 @@
 package org.sluja.scraper.shopscraper.dtos.response;
 
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.sluja.scraper.shopscraper.connector.exceptions.request.IncorrectConnectionRequestStructureException;
@@ -16,8 +17,11 @@ public record ShopCategoriesResponse(String shopName,
     }
 
     private static void validate(String shopName, Map<String, List<String>> categoryUrls) {
-        if (StringUtils.isEmpty(shopName)
-            || MapUtils.isEmpty(categoryUrls)) {
+        if (StringUtils.isBlank(shopName)
+            || MapUtils.isEmpty(categoryUrls)
+            || categoryUrls.keySet().stream().anyMatch(StringUtils::isBlank)
+            || categoryUrls.values().stream().anyMatch(CollectionUtils::isEmpty)
+            || categoryUrls.values().stream().flatMap(List::stream).anyMatch(StringUtils::isBlank)) {
             throw new IncorrectShopCategoriesResponseStructureException();
         }
     }
