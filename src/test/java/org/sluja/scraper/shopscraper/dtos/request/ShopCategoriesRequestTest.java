@@ -76,6 +76,39 @@ class ShopCategoriesRequestTest {
     }
 
     @Test
+    void constructor_CategoriesWithBlankValue_ThrowsException() {
+        // Arrange
+        List<String> categoriesWithBlank = Arrays.asList("Category1", "   ", "Category2");
+
+        // Act & Assert
+        assertThrows(IncorrectShopCategoriesRequestStructureException.class, () -> {
+            new ShopCategoriesRequest("TestShop", categoriesWithBlank);
+        });
+    }
+
+    @Test
+    void constructor_CategoriesWithEmptyValue_ThrowsException() {
+        // Arrange
+        List<String> categoriesWithEmpty = Arrays.asList("Category1", "", "Category2");
+
+        // Act & Assert
+        assertThrows(IncorrectShopCategoriesRequestStructureException.class, () -> {
+            new ShopCategoriesRequest("TestShop", categoriesWithEmpty);
+        });
+    }
+
+    @Test
+    void constructor_CategoriesWithNullValue_ThrowsException() {
+        // Arrange
+        List<String> categoriesWithNull = Arrays.asList("Category1", null, "Category2");
+
+        // Act & Assert
+        assertThrows(IncorrectShopCategoriesRequestStructureException.class, () -> {
+            new ShopCategoriesRequest("TestShop", categoriesWithNull);
+        });
+    }
+
+    @Test
     void record_ImplementsEqualsCorrectly() {
         // Arrange
         List<String> categories = Arrays.asList("Category1", "Category2");
