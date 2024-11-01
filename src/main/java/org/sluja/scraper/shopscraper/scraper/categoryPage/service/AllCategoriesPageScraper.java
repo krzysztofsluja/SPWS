@@ -1,6 +1,7 @@
 package org.sluja.scraper.shopscraper.scraper.categoryPage.service;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.jsoup.nodes.Document;
@@ -18,15 +19,17 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Component
+@Slf4j
 public class AllCategoriesPageScraper extends AbstractBaseScraper implements ICategoryPageScraper<String, AllCategoriesPageRequest> {
 
     private final IWebsiteConnector<Document> websiteScraperConnector;
+
     @Override
-    public List<String> getPages(final AllCategoriesPageRequest request) throws ExceptionWithErrorAndMessageCode{
+    public List<String> getPages(final AllCategoriesPageRequest request) throws ExceptionWithErrorAndMessageCode {
         final Document document = websiteScraperConnector.getWebpage(request.mainPageUrl());
         final List<String> allCategoriesPageUrls = extractPages(document, request);
-        if(CollectionUtils.isEmpty(allCategoriesPageUrls)) {
-            //TODO log
+        if (CollectionUtils.isEmpty(allCategoriesPageUrls)) {
+            log.warn("No category page URLs found for request: {}", request);
             throw new EmptyCategoryPageElementsListException();
         }
         return allCategoriesPageUrls;
@@ -41,7 +44,7 @@ public class AllCategoriesPageScraper extends AbstractBaseScraper implements ICa
                         final Elements elements = this.scrape(document, property);
                         return elements.eachAttr(request.pageUrlExtractAttribute());
                     } catch (final ExceptionWithErrorAndMessageCode e) {
-                        //TODO log
+                        log.error("Error extracting pages with property: {}", property, e);
                         return new ArrayList<String>();
                     }
                 })

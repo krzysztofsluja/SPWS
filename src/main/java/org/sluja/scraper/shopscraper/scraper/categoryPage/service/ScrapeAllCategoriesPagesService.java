@@ -14,19 +14,24 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class ScrapeAllCategoriesPagesService implements IGetScrapedData<List<String>> {
+public class ScrapeAllCategoriesPagesService implements IGetScrapedData<Map<String,String>> {
 
     private final ICategoryPageScraper<String, AllCategoriesPageRequest> allCategoriesPageScraper;
     @Autowired
     private GetProductsForShopRequestToAllCategoriesPageRequestMapper mapper;
     @Override
     @Cacheable(value = "categoryPagesForShop", keyGenerator = "categoryPagesForShopKeyGenerator", unless = "#result.isEmpty()")
-    public List<String> getScrapedData(final GetProductsForShopRequest request) throws ExceptionWithErrorAndMessageCode {
+    public Map<String,String> getScrapedData(final GetProductsForShopRequest request) throws ExceptionWithErrorAndMessageCode {
         try {
-            return allCategoriesPageScraper.getPages(mapper.map(request));
+            final List<String> allCategoriesPages = allCategoriesPageScraper.getPages(mapper.map(request));
+            return allCategoriesPages.stream()
+                    .collect(Collectors.toMap(Function.identity(), Function.identity()));
         } catch (final ExceptionWithErrorAndMessageCode e) {
             //TODO log
             throw e;
