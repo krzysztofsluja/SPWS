@@ -1,7 +1,7 @@
 package org.sluja.scraper.shopscraper.scraper.categoryPage.config.cache;
 
 import org.apache.commons.lang3.StringUtils;
-import org.sluja.scraper.shopscraper.scraper.categoryPage.dtos.cache.CategoryPagesForShopObject;
+import org.sluja.scraper.shopscraper.scraper.categoryPage.dtos.cache.CategoryPagesForShopCacheObject;
 import org.sluja.scraper.shopscraper.scraper.exceptions.cache.IncorrectCacheObjectException;
 import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.stereotype.Component;
@@ -14,7 +14,7 @@ import java.time.format.DateTimeFormatter;
 public class CategoryPagesForShopKeyGenerator implements KeyGenerator {
     @Override
     public Object generate(Object target, Method method, Object... params) {
-        if(params.length > 0 && params[0] instanceof CategoryPagesForShopObject o) {
+        if(params.length > 0 && params[0] instanceof CategoryPagesForShopCacheObject o) {
             return buildKey(o.getShopName(), o.getContext());
         }
         return StringUtils.EMPTY;
