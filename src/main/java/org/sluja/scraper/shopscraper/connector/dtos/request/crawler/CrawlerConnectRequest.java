@@ -1,6 +1,7 @@
 package org.sluja.scraper.shopscraper.connector.dtos.request.crawler;
 
 import lombok.Getter;
+import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -20,10 +21,10 @@ public final class CrawlerConnectRequest implements AutoCloseable {
     }
 
     private CrawlerConnectRequest(final String url, final WebDriver webDriver) {
-        if (!url.startsWith("https://") || Objects.isNull(webDriver)) {
+        if (StringUtils.isBlank(url) || !url.startsWith("https://") || Objects.isNull(webDriver)) {
             throw new IncorrectConnectionRequestStructureException();
         }
-        webDriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
+        webDriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
         this.url = url;
         this.driver = webDriver;
     }
@@ -36,6 +37,6 @@ public final class CrawlerConnectRequest implements AutoCloseable {
 
     @Override
     public void close() {
-        this.getDriver().quit();
+        driver.quit();
     }
 }
