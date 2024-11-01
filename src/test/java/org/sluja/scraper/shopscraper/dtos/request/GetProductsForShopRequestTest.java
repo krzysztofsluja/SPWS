@@ -3,11 +3,13 @@ package org.sluja.scraper.shopscraper.dtos.request;
 import org.junit.jupiter.api.Test;
 import org.sluja.scraper.shopscraper.dtos.request.attributes.ShopScrapingAttributes;
 import org.sluja.scraper.shopscraper.exceptions.IncorrectGetProductsForShopRequestStructure;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@SpringBootTest
 class GetProductsForShopRequestTest {
 
     @Test
