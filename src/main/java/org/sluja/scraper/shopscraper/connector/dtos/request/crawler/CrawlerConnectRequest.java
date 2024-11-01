@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.sluja.scraper.shopscraper.connector.exceptions.request.IncorrectConnectionRequestStructureException;
+import org.sluja.scraper.shopscraper.connector.utils.UrlValidator;
 
 import java.time.Duration;
 import java.util.Objects;
@@ -21,7 +22,7 @@ public final class CrawlerConnectRequest implements AutoCloseable {
     }
 
     private CrawlerConnectRequest(final String url, final WebDriver webDriver) {
-        if (StringUtils.isBlank(url) || !url.startsWith("https://") || Objects.isNull(webDriver)) {
+        if (!UrlValidator.isValidHttpsUrl(url) || Objects.isNull(webDriver)) {
             throw new IncorrectConnectionRequestStructureException();
         }
         webDriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
