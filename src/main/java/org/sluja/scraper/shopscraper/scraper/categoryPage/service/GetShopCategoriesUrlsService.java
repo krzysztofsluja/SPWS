@@ -38,9 +38,10 @@ public class GetShopCategoriesUrlsService implements IGetScrapedData<ShopCategor
     public ShopCategoriesResponse getScrapedData(final GetProductsForShopRequest shopRequest) 
             throws ExceptionWithErrorAndMessageCode {
         
-        log.info("Starting URL search for shop: {} with {} categories", 
+        log.info("Starting URL search for shop: {} with {} categories: {}",
                 shopRequest.shopWithCategories().shopName(),
-                shopRequest.shopWithCategories().categories().size());
+                shopRequest.shopWithCategories().categories().size(),
+                shopRequest.categoriesProperties().keySet());
         
         final Map<String, String> allPageUrls = scrapeAllCategoriesPagesService.getScrapedData(shopRequest);
         
