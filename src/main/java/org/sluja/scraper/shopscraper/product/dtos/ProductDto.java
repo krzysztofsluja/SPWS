@@ -1,4 +1,4 @@
-package org.sluja.scraper.shopscraper.dtos.product;
+package org.sluja.scraper.shopscraper.product.dtos;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
