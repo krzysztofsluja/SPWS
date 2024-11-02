@@ -1,6 +1,7 @@
 package org.sluja.scraper.shopscraper.scraper.categoryPage.service;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.sluja.scraper.shopscraper.dtos.request.GetProductsForShopRequest;
 import org.sluja.scraper.shopscraper.exceptions.ExceptionWithErrorAndMessageCode;
 import org.sluja.scraper.shopscraper.scraper.categoryPage.dtos.AllCategoriesPageRequest;
@@ -11,15 +12,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class ScrapeAllCategoriesPagesService implements IGetScrapedData<Map<String,String>> {
 
     private final ICategoryPageScraper<String, AllCategoriesPageRequest> allCategoriesPageScraper;
@@ -29,11 +28,16 @@ public class ScrapeAllCategoriesPagesService implements IGetScrapedData<Map<Stri
     @Cacheable(value = "categoryPagesForShop", keyGenerator = "categoryPagesForShopKeyGenerator", unless = "#result.isEmpty()")
     public Map<String,String> getScrapedData(final GetProductsForShopRequest request) throws ExceptionWithErrorAndMessageCode {
         try {
-            final List<String> allCategoriesPages = allCategoriesPageScraper.getPages(mapper.map(request));
+            final Set<String> allCategoriesPages = (Set<String>) allCategoriesPageScraper.getPages(mapper.map(request));
+            log.debug("Found {} category pages for shop: {}",
+                    allCategoriesPages.size(),
+                    request.shopWithCategories().shopName());
             return allCategoriesPages.stream()
                     .collect(Collectors.toMap(Function.identity(), Function.identity()));
         } catch (final ExceptionWithErrorAndMessageCode e) {
-            //TODO log
+            log.error("Failed to scrape category pages for shop: {}. Error: {}",
+                    request.shopWithCategories().shopName(),
+                    e.getMessage());
             throw e;
         }
     }
