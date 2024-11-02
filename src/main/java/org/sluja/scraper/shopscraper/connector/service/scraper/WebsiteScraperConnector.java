@@ -1,5 +1,6 @@
 package org.sluja.scraper.shopscraper.connector.service.scraper;
 
+import lombok.RequiredArgsConstructor;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.sluja.scraper.shopscraper.connector.dtos.request.ConnectRequest;
@@ -15,12 +16,10 @@ import java.io.IOException;
 import java.util.Objects;
 
 @Component
+@RequiredArgsConstructor
 public class WebsiteScraperConnector implements IWebsiteConnector<Document> {
 
     private final ScraperConnector scraperConnector;
-    public WebsiteScraperConnector() {
-        this.scraperConnector = new ScraperConnector();
-    }
     @Override
     public Document getWebpage(final String url) throws ExceptionWithErrorAndMessageCode {
         try {
@@ -29,7 +28,7 @@ public class WebsiteScraperConnector implements IWebsiteConnector<Document> {
         } catch (final IncorrectConnectionRequestStructureException ex) {
             //TODO log
             //TODO throw ex
-            return null;
+            throw ex;
         } catch (final WebsiteConnectionTimeoutException e) {
             //TODO log
             //TODO throw ex
@@ -37,6 +36,7 @@ public class WebsiteScraperConnector implements IWebsiteConnector<Document> {
         }
     }
 
+    @Component
     static class ScraperConnector implements IConnector<Document, ConnectRequest> {
 
         private final String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.82 Safari/537.36";

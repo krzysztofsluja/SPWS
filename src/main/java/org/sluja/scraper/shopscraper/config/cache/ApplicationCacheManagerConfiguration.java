@@ -6,7 +6,6 @@ import com.github.benmanes.caffeine.cache.CaffeineSpec;
 import lombok.RequiredArgsConstructor;
 import org.sluja.scraper.shopscraper.scraper.categoryPage.config.cache.CategoryPagesForShopCacheConfiguration;
 import org.sluja.scraper.shopscraper.scraper.categoryPage.config.cache.CategoryPagesForShopKeyGenerator;
-import org.sluja.scraper.shopscraper.scraper.categoryPage.dtos.cache.CategoryPagesForShopObject;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.caffeine.CaffeineCacheManager;

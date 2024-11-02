@@ -6,7 +6,7 @@ import org.sluja.scraper.shopscraper.scraper.exceptions.request.IncorrectScrapRe
 public record ScrapRequest(String property) {
 
     public ScrapRequest {
-        if (StringUtils.isEmpty(property)) {
+        if (StringUtils.isBlank(property)) {
             throw new IncorrectScrapRequestStructure();
         }
     }
