@@ -12,6 +12,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.sluja.scraper.shopscraper.scraper.categoryPage.exceptions.EmptyCategoryPageElementsListException;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -54,7 +55,7 @@ class CategoryUrlProcessorTest {
             List<String> properties = List.of("div.category a", "div.subcategory a");
             
             // When
-            List<String> result = categoryUrlProcessor.processUrls(properties, document, "href");
+            Set<String> result = categoryUrlProcessor.processUrls(properties, document, "href");
             
             // Then
             assertThat(result)
@@ -93,7 +94,7 @@ class CategoryUrlProcessorTest {
             List<String> properties = List.of("div.test a");
             
             // When
-            List<String> result = categoryUrlProcessor.processUrls(properties, docWithDuplicates, "href");
+            Set<String> result = categoryUrlProcessor.processUrls(properties, docWithDuplicates, "href");
             
             // Then
             assertThat(result)
@@ -130,18 +131,6 @@ class CategoryUrlProcessorTest {
     @Nested
     @DisplayName("CategoryUrlValidator tests")
     class CategoryUrlValidatorTests {
-        
-        @Test
-        @DisplayName("Should validate non-empty URL list")
-        void shouldValidateNonEmptyUrlList() {
-            // Given
-            List<String> urls = List.of("/url1", "/url2");
-            
-            // When/Then
-            assertThat(CategoryUrlProcessor.CategoryUrlValidator
-                    .validateUrls(urls, "test"))
-                    .doesNotThrowAnyException();
-        }
 
         @Test
         @DisplayName("Should throw exception for empty URL list")

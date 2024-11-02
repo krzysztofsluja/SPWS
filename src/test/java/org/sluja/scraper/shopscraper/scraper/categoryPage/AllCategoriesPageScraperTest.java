@@ -14,11 +14,14 @@ import org.sluja.scraper.shopscraper.scraper.categoryPage.dtos.AllCategoriesPage
 import org.sluja.scraper.shopscraper.scraper.categoryPage.service.AllCategoriesPageScraper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.assertj.core.api.ListAssert;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
@@ -61,9 +64,9 @@ public class AllCategoriesPageScraperTest {
                 "example");
 
         final List<String> expected = List.of("https://example.com/category1", "https://example.com/category2", "https://example.com/category3");
-        final List<String> actual = allCategoriesPageScraper.extractPages(document, request);
+        final Set<String> actual = allCategoriesPageScraper.extractPages(document, request);
 
-        assertEquals(expected, actual);
+        org.assertj.core.api.Assertions.assertThat(actual).containsExactlyInAnyOrderElementsOf(expected);
     }
 
     @Test
