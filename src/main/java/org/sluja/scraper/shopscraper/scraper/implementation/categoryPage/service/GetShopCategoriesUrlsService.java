@@ -11,7 +11,7 @@ import org.sluja.scraper.shopscraper.dtos.request.GetProductsForShopRequest;
 import org.sluja.scraper.shopscraper.dtos.response.ShopCategoriesResponse;
 import org.sluja.scraper.shopscraper.exceptions.ExceptionWithErrorAndMessageCode;
 import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.exceptions.EmptyCategoriesUrlsForShopException;
-import org.sluja.scraper.shopscraper.scraper.service.IGetScrapedData;
+import org.sluja.scraper.shopscraper.scraper.general.service.IGetScrapedData;
 import org.springframework.stereotype.Service;
 
 import jakarta.annotation.PreDestroy;

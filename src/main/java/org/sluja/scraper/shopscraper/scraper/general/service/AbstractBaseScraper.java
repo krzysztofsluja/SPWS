@@ -1,4 +1,4 @@
-package org.sluja.scraper.shopscraper.scraper.service;
+package org.sluja.scraper.shopscraper.scraper.general.service;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;

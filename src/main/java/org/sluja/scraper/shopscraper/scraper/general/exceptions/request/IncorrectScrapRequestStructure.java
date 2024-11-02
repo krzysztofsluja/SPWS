@@ -1,4 +1,4 @@
-package org.sluja.scraper.shopscraper.scraper.exceptions.request;
+package org.sluja.scraper.shopscraper.scraper.general.exceptions.request;
 
 import org.sluja.scraper.shopscraper.exceptions.ExceptionWithErrorAndMessageCode;
 import org.sluja.scraper.shopscraper.exceptions.RuntimeExceptionWithErrorAndMessageCode;

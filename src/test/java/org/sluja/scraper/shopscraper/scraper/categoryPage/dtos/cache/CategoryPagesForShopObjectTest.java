@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.sluja.scraper.shopscraper.scraper.exceptions.cache.IncorrectCacheObjectException;
+import org.sluja.scraper.shopscraper.scraper.general.exceptions.cache.IncorrectCacheObjectException;
 import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.dtos.cache.CategoryPagesForShopCacheObject;
 
 import java.util.Arrays;

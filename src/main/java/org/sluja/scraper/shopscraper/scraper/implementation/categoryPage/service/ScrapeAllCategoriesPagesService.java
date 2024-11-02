@@ -7,7 +7,7 @@ import org.sluja.scraper.shopscraper.exceptions.ExceptionWithErrorAndMessageCode
 import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.dtos.AllCategoriesPageRequest;
 import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.interfaces.ICategoryPageScraper;
 import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.mappers.GetProductsForShopRequestToAllCategoriesPageRequestMapper;
-import org.sluja.scraper.shopscraper.scraper.service.IGetScrapedData;
+import org.sluja.scraper.shopscraper.scraper.general.service.IGetScrapedData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;

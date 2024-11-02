@@ -2,7 +2,7 @@ package org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.config
 
 import org.apache.commons.lang3.StringUtils;
 import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.dtos.cache.CategoryPagesForShopCacheObject;
-import org.sluja.scraper.shopscraper.scraper.exceptions.cache.IncorrectCacheObjectException;
+import org.sluja.scraper.shopscraper.scraper.general.exceptions.cache.IncorrectCacheObjectException;
 import org.springframework.cache.interceptor.KeyGenerator;
 
 import java.lang.reflect.Method;

@@ -4,7 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.sluja.scraper.shopscraper.scraper.exceptions.cache.IncorrectCacheObjectException;
+import org.sluja.scraper.shopscraper.scraper.general.exceptions.cache.IncorrectCacheObjectException;
 
 import java.io.Serializable;
 import java.util.List;

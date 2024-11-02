@@ -1,4 +1,4 @@
-package org.sluja.scraper.shopscraper.scraper.service;
+package org.sluja.scraper.shopscraper.scraper.general.service;
 
 import org.sluja.scraper.shopscraper.dtos.request.GetProductsForShopRequest;
 import org.sluja.scraper.shopscraper.exceptions.ExceptionWithErrorAndMessageCode;

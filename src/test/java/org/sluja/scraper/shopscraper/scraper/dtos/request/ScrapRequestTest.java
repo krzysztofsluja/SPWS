@@ -4,7 +4,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.sluja.scraper.shopscraper.scraper.exceptions.request.IncorrectScrapRequestStructure;
+import org.sluja.scraper.shopscraper.scraper.general.dtos.request.ScrapRequest;
+import org.sluja.scraper.shopscraper.scraper.general.exceptions.request.IncorrectScrapRequestStructure;
 
 import static org.junit.jupiter.api.Assertions.*;
 

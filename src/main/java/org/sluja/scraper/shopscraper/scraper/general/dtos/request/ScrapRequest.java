@@ -1,7 +1,7 @@
-package org.sluja.scraper.shopscraper.scraper.dtos.request;
+package org.sluja.scraper.shopscraper.scraper.general.dtos.request;
 
 import org.apache.commons.lang3.StringUtils;
-import org.sluja.scraper.shopscraper.scraper.exceptions.request.IncorrectScrapRequestStructure;
+import org.sluja.scraper.shopscraper.scraper.general.exceptions.request.IncorrectScrapRequestStructure;
 
 public record ScrapRequest(String property) {
 
