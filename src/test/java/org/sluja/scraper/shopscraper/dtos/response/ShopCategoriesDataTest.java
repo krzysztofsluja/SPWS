@@ -9,7 +9,7 @@ import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class ShopCategoriesResponseTest {
+class ShopCategoriesDataTest {
 
     @Test
     void constructor_ValidInput_CreatesInstance() {
@@ -20,7 +20,7 @@ class ShopCategoriesResponseTest {
         categoryUrls.put("Category2", Arrays.asList("url3", "url4"));
 
         // Act
-        ShopCategoriesResponse response = new ShopCategoriesResponse(shopName, categoryUrls);
+        ShopCategoriesData response = new ShopCategoriesData(shopName, categoryUrls);
 
         // Assert
         assertNotNull(response);
@@ -36,7 +36,7 @@ class ShopCategoriesResponseTest {
 
         // Act & Assert
         assertThrows(IncorrectShopCategoriesResponseStructureException.class, () -> {
-            new ShopCategoriesResponse(null, categoryUrls);
+            new ShopCategoriesData(null, categoryUrls);
         });
     }
 
@@ -48,7 +48,7 @@ class ShopCategoriesResponseTest {
 
         // Act & Assert
         assertThrows(IncorrectShopCategoriesResponseStructureException.class, () -> {
-            new ShopCategoriesResponse("", categoryUrls);
+            new ShopCategoriesData("", categoryUrls);
         });
     }
 
@@ -60,7 +60,7 @@ class ShopCategoriesResponseTest {
 
         // Act & Assert
         assertThrows(IncorrectShopCategoriesResponseStructureException.class, () -> {
-            new ShopCategoriesResponse("   ", categoryUrls);
+            new ShopCategoriesData("   ", categoryUrls);
         });
     }
 
@@ -68,7 +68,7 @@ class ShopCategoriesResponseTest {
     void constructor_NullCategoryUrls_ThrowsException() {
         // Act & Assert
         assertThrows(IncorrectShopCategoriesResponseStructureException.class, () -> {
-            new ShopCategoriesResponse("TestShop", null);
+            new ShopCategoriesData("TestShop", null);
         });
     }
 
@@ -76,7 +76,7 @@ class ShopCategoriesResponseTest {
     void constructor_EmptyCategoryUrls_ThrowsException() {
         // Act & Assert
         assertThrows(IncorrectShopCategoriesResponseStructureException.class, () -> {
-            new ShopCategoriesResponse("TestShop", Collections.emptyMap());
+            new ShopCategoriesData("TestShop", Collections.emptyMap());
         });
     }
 
@@ -88,7 +88,7 @@ class ShopCategoriesResponseTest {
 
         // Act & Assert
         assertThrows(IncorrectShopCategoriesResponseStructureException.class, () -> {
-            new ShopCategoriesResponse("TestShop", categoryUrls);
+            new ShopCategoriesData("TestShop", categoryUrls);
         });
     }
 
@@ -100,7 +100,7 @@ class ShopCategoriesResponseTest {
 
         // Act & Assert
         assertThrows(IncorrectShopCategoriesResponseStructureException.class, () -> {
-            new ShopCategoriesResponse("TestShop", categoryUrls);
+            new ShopCategoriesData("TestShop", categoryUrls);
         });
     }
 
@@ -112,7 +112,7 @@ class ShopCategoriesResponseTest {
 
         // Act & Assert
         assertThrows(IncorrectShopCategoriesResponseStructureException.class, () -> {
-            new ShopCategoriesResponse("TestShop", categoryUrls);
+            new ShopCategoriesData("TestShop", categoryUrls);
         });
     }
 
@@ -124,7 +124,7 @@ class ShopCategoriesResponseTest {
 
         // Act & Assert
         assertThrows(IncorrectShopCategoriesResponseStructureException.class, () -> {
-            new ShopCategoriesResponse("TestShop", categoryUrls);
+            new ShopCategoriesData("TestShop", categoryUrls);
         });
     }
 
@@ -136,7 +136,7 @@ class ShopCategoriesResponseTest {
 
         // Act & Assert
         assertThrows(IncorrectShopCategoriesResponseStructureException.class, () -> {
-            new ShopCategoriesResponse("TestShop", categoryUrls);
+            new ShopCategoriesData("TestShop", categoryUrls);
         });
     }
 
@@ -148,7 +148,7 @@ class ShopCategoriesResponseTest {
 
         // Act & Assert
         assertThrows(IncorrectShopCategoriesResponseStructureException.class, () -> {
-            new ShopCategoriesResponse("TestShop", categoryUrls);
+            new ShopCategoriesData("TestShop", categoryUrls);
         });
     }
 
@@ -164,9 +164,9 @@ class ShopCategoriesResponseTest {
         Map<String, List<String>> categoryUrls3 = new HashMap<>();
         categoryUrls3.put("Category2", Arrays.asList("url3", "url4"));
 
-        ShopCategoriesResponse response1 = new ShopCategoriesResponse("TestShop", categoryUrls1);
-        ShopCategoriesResponse response2 = new ShopCategoriesResponse("TestShop", categoryUrls2);
-        ShopCategoriesResponse response3 = new ShopCategoriesResponse("TestShop", categoryUrls3);
+        ShopCategoriesData response1 = new ShopCategoriesData("TestShop", categoryUrls1);
+        ShopCategoriesData response2 = new ShopCategoriesData("TestShop", categoryUrls2);
+        ShopCategoriesData response3 = new ShopCategoriesData("TestShop", categoryUrls3);
 
         // Assert
         assertEquals(response1, response2);
@@ -182,8 +182,8 @@ class ShopCategoriesResponseTest {
         Map<String, List<String>> categoryUrls2 = new HashMap<>();
         categoryUrls2.put("Category1", Arrays.asList("url1", "url2"));
 
-        ShopCategoriesResponse response1 = new ShopCategoriesResponse("TestShop", categoryUrls1);
-        ShopCategoriesResponse response2 = new ShopCategoriesResponse("TestShop", categoryUrls2);
+        ShopCategoriesData response1 = new ShopCategoriesData("TestShop", categoryUrls1);
+        ShopCategoriesData response2 = new ShopCategoriesData("TestShop", categoryUrls2);
 
         // Assert
         assertEquals(response1.hashCode(), response2.hashCode());
@@ -194,7 +194,7 @@ class ShopCategoriesResponseTest {
         // Arrange
         Map<String, List<String>> categoryUrls = new HashMap<>();
         categoryUrls.put("Category1", Arrays.asList("url1", "url2"));
-        ShopCategoriesResponse response = new ShopCategoriesResponse("TestShop", categoryUrls);
+        ShopCategoriesData response = new ShopCategoriesData("TestShop", categoryUrls);
 
         // Act
         String toString = response.toString();

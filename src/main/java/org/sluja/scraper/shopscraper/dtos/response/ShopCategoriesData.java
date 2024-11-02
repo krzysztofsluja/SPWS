@@ -8,10 +8,10 @@ import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.excepti
 import java.util.List;
 import java.util.Map;
 
-public record ShopCategoriesResponse(String shopName, 
-                                     Map<String, List<String>> categoryUrls) {
+public record ShopCategoriesData(String shopName,
+                                 Map<String, List<String>> categoryUrls) {
 
-    public ShopCategoriesResponse {
+    public ShopCategoriesData {
         validate(shopName, categoryUrls);
     }
 

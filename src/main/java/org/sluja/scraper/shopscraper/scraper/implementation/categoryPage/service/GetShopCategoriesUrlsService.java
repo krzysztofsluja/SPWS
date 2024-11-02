@@ -8,7 +8,7 @@ import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.collections4.Trie;
 import org.apache.commons.collections4.trie.PatriciaTrie;
 import org.sluja.scraper.shopscraper.dtos.request.GetProductsForShopRequest;
-import org.sluja.scraper.shopscraper.dtos.response.ShopCategoriesResponse;
+import org.sluja.scraper.shopscraper.dtos.response.ShopCategoriesData;
 import org.sluja.scraper.shopscraper.exceptions.ExceptionWithErrorAndMessageCode;
 import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.exceptions.EmptyCategoriesUrlsForShopException;
 import org.sluja.scraper.shopscraper.scraper.general.service.IGetScrapedData;
@@ -28,14 +28,14 @@ import java.util.stream.Collectors;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class GetShopCategoriesUrlsService implements IGetScrapedData<ShopCategoriesResponse> {
+public class GetShopCategoriesUrlsService implements IGetScrapedData<ShopCategoriesData> {
     
     private final ScrapeAllCategoriesPagesService scrapeAllCategoriesPagesService;
     private final ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
     private final Map<String, Trie<String, Boolean>> categoryTries = new ConcurrentHashMap<>();
 
     @Override
-    public ShopCategoriesResponse getScrapedData(final GetProductsForShopRequest shopRequest) 
+    public ShopCategoriesData getScrapedData(final GetProductsForShopRequest shopRequest)
             throws ExceptionWithErrorAndMessageCode {
         
         log.info("Starting URL search for shop: {} with {} categories: {}",
@@ -67,7 +67,7 @@ public class GetShopCategoriesUrlsService implements IGetScrapedData<ShopCategor
                 throw new EmptyCategoriesUrlsForShopException();
             }
             
-            return new ShopCategoriesResponse(
+            return new ShopCategoriesData(
                     shopRequest.shopWithCategories().shopName(), 
                     categoryUrls
             );
