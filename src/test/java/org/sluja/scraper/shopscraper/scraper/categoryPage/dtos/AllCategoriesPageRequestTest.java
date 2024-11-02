@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.dtos.AllCategoriesPageRequest;
 import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.exceptions.IncorrectCategoryPageRequestStructure;
 
 import java.util.Arrays;

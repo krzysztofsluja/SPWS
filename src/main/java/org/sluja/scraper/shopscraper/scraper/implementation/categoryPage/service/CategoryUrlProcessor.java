@@ -40,7 +40,7 @@ public class CategoryUrlProcessor {
         }
     }
 
-    static class CategoryUrlValidator {
+    public static class CategoryUrlValidator {
         public static void validateUrls(final Collection<String> urls,
                                         final String requestInfo) throws EmptyCategoryPageElementsListException {
             if (CollectionUtils.isEmpty(urls)) {
@@ -50,7 +50,7 @@ public class CategoryUrlProcessor {
         }
     }
 
-    static class CategoryUrlCleaner {
+    public static class CategoryUrlCleaner {
         public static String cleanUrl(final String url) {
             return url.replaceAll("\\s", StringUtils.EMPTY);
         }
