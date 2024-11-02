@@ -9,7 +9,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.sluja.scraper.shopscraper.scraper.categoryPage.exceptions.EmptyCategoryPageElementsListException;
+import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.exceptions.EmptyCategoryPageElementsListException;
+import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.service.CategoryUrlProcessor;
 
 import java.util.List;
 import java.util.Set;

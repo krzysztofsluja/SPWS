@@ -1,4 +1,4 @@
-package org.sluja.scraper.shopscraper.scraper.categoryPage.interfaces;
+package org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.interfaces;
 
 import org.jsoup.nodes.Document;
 import org.sluja.scraper.shopscraper.exceptions.ExceptionWithErrorAndMessageCode;

@@ -1,4 +1,4 @@
-package org.sluja.scraper.shopscraper.scraper.categoryPage.service;
+package org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -10,7 +10,7 @@ import org.apache.commons.collections4.trie.PatriciaTrie;
 import org.sluja.scraper.shopscraper.dtos.request.GetProductsForShopRequest;
 import org.sluja.scraper.shopscraper.dtos.response.ShopCategoriesResponse;
 import org.sluja.scraper.shopscraper.exceptions.ExceptionWithErrorAndMessageCode;
-import org.sluja.scraper.shopscraper.scraper.categoryPage.exceptions.EmptyCategoriesUrlsForShopException;
+import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.exceptions.EmptyCategoriesUrlsForShopException;
 import org.sluja.scraper.shopscraper.scraper.service.IGetScrapedData;
 import org.springframework.stereotype.Service;
 

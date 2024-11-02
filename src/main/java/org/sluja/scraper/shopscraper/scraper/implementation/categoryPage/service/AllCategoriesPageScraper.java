@@ -1,17 +1,16 @@
-package org.sluja.scraper.shopscraper.scraper.categoryPage.service;
+package org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.nodes.Document;
 import org.sluja.scraper.shopscraper.connector.interfaces.IWebsiteConnector;
 import org.sluja.scraper.shopscraper.exceptions.ExceptionWithErrorAndMessageCode;
-import org.sluja.scraper.shopscraper.scraper.categoryPage.dtos.AllCategoriesPageRequest;
-import org.sluja.scraper.shopscraper.scraper.categoryPage.exceptions.EmptyCategoryPageElementsListException;
-import org.sluja.scraper.shopscraper.scraper.categoryPage.interfaces.ICategoryPageScraper;
-import org.sluja.scraper.shopscraper.scraper.categoryPage.interfaces.IPageExtractor;
+import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.dtos.AllCategoriesPageRequest;
+import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.exceptions.EmptyCategoryPageElementsListException;
+import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.interfaces.ICategoryPageScraper;
+import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.interfaces.IPageExtractor;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
 import java.util.Set;
 
 @Slf4j

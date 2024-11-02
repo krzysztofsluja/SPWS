@@ -2,23 +2,18 @@ package org.sluja.scraper.shopscraper.scraper.categoryPage;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.sluja.scraper.shopscraper.connector.interfaces.IWebsiteConnector;
 import org.sluja.scraper.shopscraper.exceptions.ExceptionWithErrorAndMessageCode;
-import org.sluja.scraper.shopscraper.scraper.categoryPage.dtos.AllCategoriesPageRequest;
-import org.sluja.scraper.shopscraper.scraper.categoryPage.service.AllCategoriesPageScraper;
+import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.dtos.AllCategoriesPageRequest;
+import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.service.AllCategoriesPageScraper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.assertj.core.api.ListAssert;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Set;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;

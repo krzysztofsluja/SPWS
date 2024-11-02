@@ -1,8 +1,8 @@
-package org.sluja.scraper.shopscraper.scraper.categoryPage.dtos;
+package org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.dtos;
 
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.sluja.scraper.shopscraper.scraper.categoryPage.exceptions.IncorrectCategoryPageRequestStructure;
+import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.exceptions.IncorrectCategoryPageRequestStructure;
 
 import java.util.List;
 

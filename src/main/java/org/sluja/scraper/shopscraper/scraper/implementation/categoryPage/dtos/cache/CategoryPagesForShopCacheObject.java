@@ -1,4 +1,4 @@
-package org.sluja.scraper.shopscraper.scraper.categoryPage.dtos.cache;
+package org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.dtos.cache;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

@@ -10,7 +10,9 @@ import org.sluja.scraper.shopscraper.dtos.request.GetProductsForShopRequest;
 import org.sluja.scraper.shopscraper.dtos.request.ShopCategoriesRequest;
 import org.sluja.scraper.shopscraper.dtos.request.attributes.ShopScrapingAttributes;
 import org.sluja.scraper.shopscraper.dtos.response.ShopCategoriesResponse;
-import org.sluja.scraper.shopscraper.scraper.categoryPage.exceptions.EmptyCategoriesUrlsForShopException;
+import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.exceptions.EmptyCategoriesUrlsForShopException;
+import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.service.GetShopCategoriesUrlsService;
+import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.service.ScrapeAllCategoriesPagesService;
 
 import java.util.*;
 

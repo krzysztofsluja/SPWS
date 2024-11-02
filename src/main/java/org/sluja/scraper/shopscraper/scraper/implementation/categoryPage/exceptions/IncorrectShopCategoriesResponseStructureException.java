@@ -1,4 +1,4 @@
-package org.sluja.scraper.shopscraper.scraper.categoryPage.exceptions;
+package org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.exceptions;
 
 import org.sluja.scraper.shopscraper.exceptions.RuntimeExceptionWithErrorAndMessageCode;
 

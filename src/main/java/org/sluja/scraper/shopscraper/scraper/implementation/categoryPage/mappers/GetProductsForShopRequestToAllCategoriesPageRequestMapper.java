@@ -1,8 +1,8 @@
-package org.sluja.scraper.shopscraper.scraper.categoryPage.mappers;
+package org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.mappers;
 
 import org.mapstruct.*;
 import org.sluja.scraper.shopscraper.dtos.request.GetProductsForShopRequest;
-import org.sluja.scraper.shopscraper.scraper.categoryPage.dtos.AllCategoriesPageRequest;
+import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.dtos.AllCategoriesPageRequest;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)
 public interface GetProductsForShopRequestToAllCategoriesPageRequestMapper {

@@ -1,12 +1,12 @@
-package org.sluja.scraper.shopscraper.scraper.categoryPage.service;
+package org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.sluja.scraper.shopscraper.dtos.request.GetProductsForShopRequest;
 import org.sluja.scraper.shopscraper.exceptions.ExceptionWithErrorAndMessageCode;
-import org.sluja.scraper.shopscraper.scraper.categoryPage.dtos.AllCategoriesPageRequest;
-import org.sluja.scraper.shopscraper.scraper.categoryPage.interfaces.ICategoryPageScraper;
-import org.sluja.scraper.shopscraper.scraper.categoryPage.mappers.GetProductsForShopRequestToAllCategoriesPageRequestMapper;
+import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.dtos.AllCategoriesPageRequest;
+import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.interfaces.ICategoryPageScraper;
+import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.mappers.GetProductsForShopRequestToAllCategoriesPageRequestMapper;
 import org.sluja.scraper.shopscraper.scraper.service.IGetScrapedData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;

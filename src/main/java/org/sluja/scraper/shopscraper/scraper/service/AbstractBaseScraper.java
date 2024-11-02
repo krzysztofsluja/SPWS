@@ -3,7 +3,7 @@ package org.sluja.scraper.shopscraper.scraper.service;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.sluja.scraper.shopscraper.exceptions.ExceptionWithErrorAndMessageCode;
-import org.sluja.scraper.shopscraper.scraper.categoryPage.exceptions.EmptyCategoryPageElementsListException;
+import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.exceptions.EmptyCategoryPageElementsListException;
 
 public abstract class AbstractBaseScraper implements IBaseScraper<Elements, Document> {
 

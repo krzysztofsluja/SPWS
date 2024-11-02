@@ -1,4 +1,4 @@
-package org.sluja.scraper.shopscraper.scraper.categoryPage.config.cache;
+package org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.config.cache;
 
 
 import com.github.benmanes.caffeine.cache.Cache;

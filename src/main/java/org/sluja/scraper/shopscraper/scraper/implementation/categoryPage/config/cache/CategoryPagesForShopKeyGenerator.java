@@ -1,10 +1,9 @@
-package org.sluja.scraper.shopscraper.scraper.categoryPage.config.cache;
+package org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.config.cache;
 
 import org.apache.commons.lang3.StringUtils;
-import org.sluja.scraper.shopscraper.scraper.categoryPage.dtos.cache.CategoryPagesForShopCacheObject;
+import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.dtos.cache.CategoryPagesForShopCacheObject;
 import org.sluja.scraper.shopscraper.scraper.exceptions.cache.IncorrectCacheObjectException;
 import org.springframework.cache.interceptor.KeyGenerator;
-import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
 import java.time.DateTimeException;

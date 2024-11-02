@@ -1,7 +1,7 @@
 package org.sluja.scraper.shopscraper.dtos.response;
 
 import org.junit.jupiter.api.Test;
-import org.sluja.scraper.shopscraper.scraper.categoryPage.exceptions.IncorrectShopCategoriesResponseStructureException;
+import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.exceptions.IncorrectShopCategoriesResponseStructureException;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.*;

@@ -1,12 +1,13 @@
 package org.sluja.scraper.shopscraper.scraper.categoryPage.mappers;
 
 import org.junit.jupiter.api.Test;
+import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.mappers.GetProductsForShopRequestToAllCategoriesPageRequestMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.sluja.scraper.shopscraper.dtos.request.GetProductsForShopRequest;
 import org.sluja.scraper.shopscraper.dtos.request.ShopCategoriesRequest;
 import org.sluja.scraper.shopscraper.dtos.request.attributes.ShopScrapingAttributes;
-import org.sluja.scraper.shopscraper.scraper.categoryPage.dtos.AllCategoriesPageRequest;
+import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.dtos.AllCategoriesPageRequest;
 
 import java.util.Arrays;
 import java.util.HashMap;

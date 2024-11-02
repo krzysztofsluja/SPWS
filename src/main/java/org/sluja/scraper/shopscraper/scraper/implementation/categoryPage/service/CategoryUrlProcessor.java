@@ -1,12 +1,11 @@
-package org.sluja.scraper.shopscraper.scraper.categoryPage.service;
+package org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
-import org.sluja.scraper.shopscraper.exceptions.ExceptionWithErrorAndMessageCode;
-import org.sluja.scraper.shopscraper.scraper.categoryPage.exceptions.EmptyCategoryPageElementsListException;
+import org.sluja.scraper.shopscraper.scraper.implementation.categoryPage.exceptions.EmptyCategoryPageElementsListException;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
